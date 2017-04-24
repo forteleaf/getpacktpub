@@ -94,5 +94,5 @@ func main() {
 	getFreeBookURL, _ := GetFreeBookURL()
 	getFreeBookURL = packtPubBaseURL + getFreeBookURL
 
-	Auth(email, password, getFreeBookURL)
+	// Auth(email, password, getFreeBookURL)
 }

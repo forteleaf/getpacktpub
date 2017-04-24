@@ -54,6 +54,7 @@ func GetFreeBookURL() (url string, err error) {
 		node := s.First()
 		url, _ = node.Attr("href")
 	})
+	bookTitle := doc.Find(".dotd-title").Text()
 	return url, err
 }
 
