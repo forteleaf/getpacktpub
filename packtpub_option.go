@@ -54,7 +54,9 @@ func GetFreeBookURL() (url string, err error) {
 		node := s.First()
 		url, _ = node.Attr("href")
 	})
-	bookTitle := doc.Find(".dotd-title").Text()
+	bookTitle := strings.TrimSpace(doc.Find(".dotd-title").Text())
+	bookImage, _ := doc.Find("img.imagecache-dotd_main_image").Attr("data-original")
+	bookImage = strings.Trim(bookImage, "//")
 	return url, err
 }
 
@@ -148,9 +150,10 @@ func main() {
 		os.Exit(0)
 	}
 	// check today URL file
-	checkPacktpubConfig()
+	// checkPacktpubConfig()
 
-	addr, err := readConfig()
-	chkError(err)
-	Auth(email, pwd, addr)
+	GetFreeBookURL()
+	// addr, err := readConfig()
+	// chkError(err)
+	// Auth(email, pwd, addr)
 }
